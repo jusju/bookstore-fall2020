@@ -1,13 +1,34 @@
 package com.example.bookstorefall2020.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String title;
 	private String author;
 	private int year;
 	private String isbn;
-	private double price;
+	private double price;	
 	
+	public Book() {
+		
+	}
+	
+	public Book(String title, String author, int year, String isbn, double price) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.year = year;
+		this.isbn = isbn;
+		this.price = price;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -37,6 +58,12 @@ public class Book {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
+				+ ", price=" + price + "]";
 	}
 	
 	
