@@ -2,6 +2,8 @@ package com.example.bookstorefall2020.web;
 
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +46,10 @@ public class BookController {
     	repository.deleteById(bookId);
         return "redirect:../booklist";
     }    
-    
-    
-
+    @RequestMapping(value = "/modify/{id}", method = RequestMethod.GET)
+    public String modifyBook(@PathVariable("id") Long bookId, Model model) {
+    	Optional<Book> book = repository.findById(bookId);
+    	model.addAttribute("book", book);
+        return "modifybook";
+    }   
 }
