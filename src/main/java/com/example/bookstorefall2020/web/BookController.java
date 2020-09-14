@@ -16,7 +16,7 @@ public class BookController {
 
     @RequestMapping(value="/index", method=RequestMethod.GET)
     public String greetingForm(Model model) {
-        return "index";
+        return "booklist";
     }
 
 
